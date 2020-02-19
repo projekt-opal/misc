@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- https://www.mcloud.de/web/guest/suche/-/results/detail/4F5E35F6-F128-4948-BB7E-73FA826FDDD0 -->
+<rdf:RDF
+    xmlns:adms="http://www.w3.org/ns/adms#"
+    xmlns:dcat="http://www.w3.org/ns/dcat#"
+    xmlns:dcatde="http://dcat-ap.de/def/dcatde/1.0.1/"
+    xmlns:dcterms="http://purl.org/dc/terms/"
+    xmlns:foaf="http://xmlns.com/foaf/0.1/"
+    xmlns:gml="http://www.opengis.net/gml/3.2"
+    xmlns:locn="http://www.w3.org/ns/locn#"
+    xmlns:odrs="http://schema.theodi.org/odrs#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:schema="http://schema.org/"
+    xmlns:vcard="http://www.w3.org/2006/vcard/ns#"
+    xmlns:hydra="http://www.w3.org/ns/hydra/core#">
+  <dcat:Catalog rdf:about="https://mcloud.de">
+    <dcat:dataset rdf:resource="https://mcloud.de/web/guest/suche/-/results/detail/4F5E35F6-F128-4948-BB7E-73FA826FDDD0"/>
+    <dcterms:description xml:lang="de">Dies ist das Portal der mCLOUD.</dcterms:description>
+    <dcterms:publisher>
+      <foaf:Agent rdf:about="https://mcloud.de/#publisher">
+        <foaf:name>Bundesministerium für Verkehr und digitale Infrastruktur</foaf:name>
+      </foaf:Agent>
+    </dcterms:publisher>
+    <dcterms:title xml:lang="de">mCLOUD Portal</dcterms:title>
+    <foaf:homepage rdf:resource="https://mcloud.de/"/>
+  </dcat:Catalog>
+  <dcat:Dataset rdf:about="https://mcloud.de/web/guest/suche/-/results/detail/4F5E35F6-F128-4948-BB7E-73FA826FDDD0">
+    <dcterms:description xml:lang="de">Deutschland ist ein Zukunftsland. Ob superschnelles Internet oder neue Formen der urbanen Mobilität – das Bundesministerium für Verkehr und digitale Infrastruktur (BMVI) unterstützt den Fortschritt mit Förderprogrammen in Millionenhöhe.
+
+Erstmals zeigt nun eine interaktive Förderlandkarte auf der Internetseite des BMVI, wo und wie genau diese Gelder das Leben der Menschen verbessern. Leicht bedienbar und auf den Straßenzug genau, gibt die Förderlandkarte einen detaillierten Überblick über mehr als 10.100 Förderprojekte aus insgesamt 20 Förderprogrammen.
+
+Wie funktioniert die interaktive Förderlandkarte?
+Die Suche lässt sich in die Themenfelder Digitales, Infrastruktur und Mobilität unterteilen. Eine Auswahl nach bestimmten Förderprogrammen und Zeiträumen ist ebenfalls möglich. Die Suche kann örtlich eingrenzt werden: nach Bundesländern, Landkreisen, kreisfreien Städten oder auch Bundestagswahlkreisen. Jede Förderung kann standortgenau mit den jeweiligen Hintergrundinformationen zur Förderung in der Förderlandkarte abgerufen werden. Zu jedem Förderprogramm gibt es weiterführende Informationen auf der Internetseite des BMVI. Es besteht die Möglichkeit, die individuelle Auswahl zu exportieren (CSV, Excel), um damit offline weiterzuarbeiten.
+
+Detaillierte Informationen: &lt;a href="https://www.bmvi.de/SharedDocs/DE/SocialMedia/Youtube/public/2019/11/Von-Breitbandausbau-bis-E-Ladesaeulen---mehr-als-9000-Forderprojekte_vhIAsB41cOQ.html">BMVI Förderlandkarte&lt;/a></dcterms:description>
+    <dcterms:title xml:lang="de">Förderlandkarte des BMVI</dcterms:title>
+    <dcatde:contributorID rdf:resource="http://dcat-ap.de/def/contributors/mCloud"/>
+    <dcat:distribution rdf:resource="https://www.bmvi.de/SharedDocs/DE/Artikel/foerderlandkarte-bmvi-iframe.html/distribution"/>
+    <dcat:distribution rdf:resource="https://atlas.wsv.bund.de/bmvi-flk/rest/projects/search/distribution"/>
+    <dcat:keyword xml:lang="de">mCLOUD-Kategorie Luft- und Raumfahrt</dcat:keyword>
+    <dcat:keyword xml:lang="de">mCLOUD-Kategorie Straßen</dcat:keyword>
+    <dcat:keyword xml:lang="de">mCLOUD-Kategorie Wasserstraßen und Gewässer</dcat:keyword>
+    <dcat:keyword xml:lang="de">mCLOUD-Kategorie Infrastruktur</dcat:keyword>
+    <dcat:keyword xml:lang="de">mCLOUD-Kategorie Klima und Wetter</dcat:keyword>
+    <dcat:keyword xml:lang="de">mCLOUD-Kategorie Bahn</dcat:keyword>
+    <dcterms:publisher>
+      <foaf:Agent rdf:about="https://www.bmvi.de/">
+        <foaf:name>Bundesministerium für Verkehr und digitale Infrastruktur (BMVI)</foaf:name>
+      </foaf:Agent>
+    </dcterms:publisher>
+    <dcatde:originator>
+      <foaf:Organization>
+        <foaf:name>Bundesministerium für Verkehr und digitale Infrastruktur (BMVI)</foaf:name>
+      </foaf:Organization>
+    </dcatde:originator>
+    <dcterms:identifier>4F5E35F6-F128-4948-BB7E-73FA826FDDD0</dcterms:identifier>
+    <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2019-12-16T14:01:49.643Z</dcterms:issued>
+    <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-01-27T07:28:34.670Z</dcterms:modified>
+    <dcat:theme rdf:resource="http://publications.europa.eu/resource/authority/data-theme/GOVE"/>
+    <dcat:theme rdf:resource="http://publications.europa.eu/resource/authority/data-theme/TRAN"/>
+    <dcat:theme rdf:resource="http://publications.europa.eu/resource/authority/data-theme/TECH"/>
+  </dcat:Dataset>
+  <dcat:Distribution rdf:about="https://www.bmvi.de/SharedDocs/DE/Artikel/foerderlandkarte-bmvi-iframe.html/distribution">
+    <dcat:accessURL rdf:resource="https://www.bmvi.de/SharedDocs/DE/Artikel/foerderlandkarte-bmvi-iframe.html"/>
+    <dcterms:license rdf:resource="http://dcat-ap.de/def/licenses/other-open"/>
+    <dcterms:format rdf:resource="http://publications.europa.eu/resource/authority/file-type/HTML"/>
+    <dcat:downloadURL rdf:resource="https://www.bmvi.de/SharedDocs/DE/Artikel/foerderlandkarte-bmvi-iframe.html"/>
+  </dcat:Distribution>
+  <dcat:Distribution rdf:about="https://atlas.wsv.bund.de/bmvi-flk/rest/projects/search/distribution">
+    <dcat:accessURL rdf:resource="https://atlas.wsv.bund.de/bmvi-flk/rest/projects/search"/>
+    <dcterms:license rdf:resource="http://dcat-ap.de/def/licenses/other-open"/>
+    <dcat:downloadURL rdf:resource="https://atlas.wsv.bund.de/bmvi-flk/rest/projects/search"/>
+  </dcat:Distribution>
+</rdf:RDF>

@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- https://www.mcloud.de/web/guest/suche/-/results/detail/91CDE1D7-306D-4C3C-B7F4-577C36BFC0A2 -->
+<rdf:RDF
+    xmlns:adms="http://www.w3.org/ns/adms#"
+    xmlns:dcat="http://www.w3.org/ns/dcat#"
+    xmlns:dcatde="http://dcat-ap.de/def/dcatde/1.0.1/"
+    xmlns:dcterms="http://purl.org/dc/terms/"
+    xmlns:foaf="http://xmlns.com/foaf/0.1/"
+    xmlns:gml="http://www.opengis.net/gml/3.2"
+    xmlns:locn="http://www.w3.org/ns/locn#"
+    xmlns:odrs="http://schema.theodi.org/odrs#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:schema="http://schema.org/"
+    xmlns:vcard="http://www.w3.org/2006/vcard/ns#"
+    xmlns:hydra="http://www.w3.org/ns/hydra/core#">
+  <dcat:Catalog rdf:about="https://mcloud.de">
+    <dcat:dataset rdf:resource="https://mcloud.de/web/guest/suche/-/results/detail/91CDE1D7-306D-4C3C-B7F4-577C36BFC0A2"/>
+    <dcterms:description xml:lang="de">Dies ist das Portal der mCLOUD.</dcterms:description>
+    <dcterms:publisher>
+      <foaf:Agent rdf:about="https://mcloud.de/#publisher">
+        <foaf:name>Bundesministerium für Verkehr und digitale Infrastruktur</foaf:name>
+      </foaf:Agent>
+    </dcterms:publisher>
+    <dcterms:title xml:lang="de">mCLOUD Portal</dcterms:title>
+    <foaf:homepage rdf:resource="https://mcloud.de/"/>
+  </dcat:Catalog>
+  <dcat:Dataset rdf:about="https://mcloud.de/web/guest/suche/-/results/detail/91CDE1D7-306D-4C3C-B7F4-577C36BFC0A2">
+    <dcterms:description xml:lang="de">Der Kartenlayer "Stationierung" stellt die Laengenunterteilung der Fliessgewaesser und Schifffahrtskanaele in Nordrhein-Westfalen  in 100 Meterabschnitten dar. Es wird unterschieden in 100 Meter-, 500 Meter- und 1000 Meterpunkte. Die Stationierung ist Bestandteil der Gewässerstationierungskarte des Landes NRW</dcterms:description>
+    <dcterms:title xml:lang="de">Kartenlayer Stationierung NRW</dcterms:title>
+    <dcatde:contributorID rdf:resource="http://dcat-ap.de/def/contributors/mCloud"/>
+    <dcat:distribution rdf:resource="https://www.opengeodata.nrw.de/produkte/umwelt_klima/wasser/gsk3c/gsk3c_EPSG25832_Shape.zip/distribution"/>
+    <dcat:distribution rdf:resource="http://www.gis-rest.nrw.de/atomFeed/rest/atom/b28dbd7a-0559-487b-b3bf-2836290595b3/distribution"/>
+    <dcat:distribution rdf:resource="https://www.wms.nrw.de/umwelt/gsk3c?SERVICE=WMS&amp;REQUEST=GetCapabilities/distribution"/>
+    <dcat:keyword xml:lang="de">mCLOUD-Kategorie Straßen</dcat:keyword>
+    <dcterms:publisher>
+      <foaf:Agent>
+        <foaf:name>Geoportal</foaf:name>
+      </foaf:Agent>
+    </dcterms:publisher>
+    <dcatde:originator>
+      <foaf:Organization/>
+    </dcatde:originator>
+    <dcterms:creator>
+      <foaf:Organization/>
+    </dcterms:creator>
+    <dcterms:identifier>91CDE1D7-306D-4C3C-B7F4-577C36BFC0A2</dcterms:identifier>
+    <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2010-01-20T10:22:00Z</dcterms:issued>
+    <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2010-01-20T10:22:00Z</dcterms:modified>
+    <dcat:theme rdf:resource="http://publications.europa.eu/resource/authority/data-theme/REGI"/>
+  </dcat:Dataset>
+  <dcat:Distribution rdf:about="https://www.opengeodata.nrw.de/produkte/umwelt_klima/wasser/gsk3c/gsk3c_EPSG25832_Shape.zip/distribution">
+    <dcat:accessURL rdf:resource="https://www.opengeodata.nrw.de/produkte/umwelt_klima/wasser/gsk3c/gsk3c_EPSG25832_Shape.zip"/>
+    <dcterms:license rdf:resource="http://dcat-ap.de/def/licenses/dl-by-de/2.0"/>
+    <dcterms:format rdf:resource="http://publications.europa.eu/resource/authority/file-type/GML"/>
+    <dcat:downloadURL rdf:resource="https://www.opengeodata.nrw.de/produkte/umwelt_klima/wasser/gsk3c/gsk3c_EPSG25832_Shape.zip"/>
+    <dcterms:title xml:lang="de">gsk3c_EPSG25832_Shape.zip</dcterms:title>
+  </dcat:Distribution>
+  <dcat:Distribution rdf:about="http://www.gis-rest.nrw.de/atomFeed/rest/atom/b28dbd7a-0559-487b-b3bf-2836290595b3/distribution">
+    <dcat:accessURL rdf:resource="http://www.gis-rest.nrw.de/atomFeed/rest/atom/b28dbd7a-0559-487b-b3bf-2836290595b3"/>
+    <dcterms:license rdf:resource="http://dcat-ap.de/def/licenses/dl-by-de/2.0"/>
+    <dcat:downloadURL rdf:resource="http://www.gis-rest.nrw.de/atomFeed/rest/atom/b28dbd7a-0559-487b-b3bf-2836290595b3"/>
+    <dcterms:title xml:lang="de">Datendownload - Gewässerstationierungskarte NRW (gsk3c)</dcterms:title>
+  </dcat:Distribution>
+  <dcat:Distribution rdf:about="https://www.wms.nrw.de/umwelt/gsk3c?SERVICE=WMS&amp;REQUEST=GetCapabilities/distribution">
+    <dcat:accessURL rdf:resource="https://www.wms.nrw.de/umwelt/gsk3c?SERVICE=WMS&amp;REQUEST=GetCapabilities"/>
+    <dcterms:license rdf:resource="http://dcat-ap.de/def/licenses/dl-by-de/2.0"/>
+    <dcterms:format rdf:resource="http://publications.europa.eu/resource/authority/file-type/WMS_SRVC"/>
+    <dcat:downloadURL rdf:resource="https://www.wms.nrw.de/umwelt/gsk3c?SERVICE=WMS&amp;REQUEST=GetCapabilities"/>
+    <dcterms:title xml:lang="de">WMS Gewässerstationierungskarte NRW (gsk3c)</dcterms:title>
+  </dcat:Distribution>
+</rdf:RDF>
