@@ -1,6 +1,6 @@
 /target/
 *.graphml
-
+*.pdf
 
 ### https://github.com/github/gitignore/blob/master/Java.gitignore
 
