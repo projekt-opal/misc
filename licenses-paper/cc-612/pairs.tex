@@ -1,0 +1,57 @@
+\documentclass[border=5mm]{standalone}
+\usepackage{pgfplots, pgfplotstable}
+\usepackage{filecontents}
+
+% https://tex.stackexchange.com/a/204643
+
+\begin{filecontents}{table.dat}
+x	y
+0	129330
+1	6
+2	13
+3	778
+4	1960
+7	10
+55	21600
+94	8619
+95	5061
+96	101
+289	15020
+301	30
+580	5035
+605	9
+608	6
+\end{filecontents}
+
+\begin{document}
+
+%\begin{tikzpicture}
+%    \begin{axis}[
+%            grid = major,
+%            grid style={dashed, gray!30},
+%            ylabel=License pairs,
+%            xlabel=Compatible licenses,
+%%            axis lines = left,
+%  scaled y ticks = false, 
+%    ytick={0,10000,20000,100000,130000},
+%  y tick label style={/pgf/number format/.cd, fixed, fixed zerofill,precision=0},
+%         ]        
+%        \addplot[only marks] table  {table.dat};
+%    \end{axis}
+%\end{tikzpicture}
+
+\begin{tikzpicture}
+    \begin{axis}[
+    ymode=log,
+            grid = major,
+            grid style={dashed, gray!30},
+            ylabel=License pairs,
+            xlabel=Compatible licenses,
+%            axis lines = left,
+  scaled y ticks = false, 
+         ]        
+        \addplot[only marks] table  {table.dat};
+    \end{axis}
+\end{tikzpicture}
+
+\end{document}
