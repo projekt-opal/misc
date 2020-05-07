@@ -23,6 +23,25 @@ x	y
 608	6
 \end{filecontents}
 
+\begin{filecontents}{table2.dat}
+x	y
+0	32990370
+1	21
+2	49
+3	38558
+4	247050
+7	20
+55	2476525
+94	959179
+95	320641
+96	5151
+289	1181570
+301	130
+580	171665
+605	25
+608	10
+\end{filecontents}
+
 \begin{document}
 
 %\begin{tikzpicture}
@@ -51,6 +70,22 @@ x	y
   scaled y ticks = false, 
          ]        
         \addplot[only marks] table  {table.dat};
+    \end{axis}
+\end{tikzpicture}
+
+\hspace{1cm}
+
+\begin{tikzpicture}
+    \begin{axis}[
+    ymode=log,
+            grid = major,
+            grid style={dashed, gray!30},
+            ylabel=Number of input license triples,
+            xlabel=Number of resulting compatible licenses,
+%            axis lines = left,
+  scaled y ticks = false, 
+         ]        
+        \addplot[only marks] table  {table2.dat};
     \end{axis}
 \end{tikzpicture}
 
