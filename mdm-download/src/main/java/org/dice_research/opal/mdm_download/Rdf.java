@@ -72,8 +72,13 @@ public class Rdf {
 
 		// TODO: Check if geo name is available for all datasets
 		// https://www.w3.org/TR/vocab-dcat-2/#Property:dataset_spatial
-		if (container.geographicalArea != null && !container.geographicalArea.isEmpty()) {
-			model.addLiteral(dataset, DCTerms.spatial, ResourceFactory.createStringLiteral(container.geographicalArea));
+		if (container.geographicalAreaText != null && !container.geographicalAreaText.isEmpty()) {
+			model.addLiteral(dataset, DCTerms.spatial,
+					ResourceFactory.createStringLiteral(container.geographicalAreaText));
+		}
+		if (container.geographicalAreaNuts != null && !container.geographicalAreaNuts.isEmpty()) {
+			model.addLiteral(dataset, DCTerms.spatial,
+					ResourceFactory.createStringLiteral(container.geographicalAreaNuts));
 		}
 
 		// TODO: Check conditionsOfUse

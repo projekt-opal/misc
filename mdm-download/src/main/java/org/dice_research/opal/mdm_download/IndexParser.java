@@ -50,7 +50,17 @@ public class IndexParser {
 
 			indexContainer.organization = tdTagNodes.get(3).getText().toString().trim();
 			indexContainer.organizationUrl = tdTagNodes.get(3).findElementByName("a", true).getAttributeByName("href");
-			indexContainer.geographicalArea = tdTagNodes.get(5).getText().toString().trim();
+
+			String geographicalArea = tdTagNodes.get(5).getText().toString().trim();
+			if (geographicalArea != null && geographicalArea.contains("(") && geographicalArea.contains(")")) {
+				int beginIndex = geographicalArea.lastIndexOf("(");
+				int endIndex = geographicalArea.lastIndexOf(")");
+				indexContainer.geographicalAreaText = geographicalArea.substring(0, beginIndex - 1);
+				indexContainer.geographicalAreaNuts = geographicalArea.substring(beginIndex + 1, endIndex);
+			} else {
+				indexContainer.geographicalAreaText = geographicalArea;
+			}
+
 			indexContainer.conditionsOfUse = tdTagNodes.get(7).getText().toString().trim();
 
 			String detailsUrl = tdTagNodes.get(8).findElementByName("a", true).getAttributeByName("href");

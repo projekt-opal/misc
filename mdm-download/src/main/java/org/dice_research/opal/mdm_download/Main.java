@@ -56,6 +56,10 @@ public class Main {
 		if (Boolean.TRUE) {
 			File turtleFile = new File(main.downloadDirectory, FILE_NAME_TURTLE);
 			main.createRdf(containers, turtleFile);
+		} else {
+			for (DatasetContainer container : containers) {
+				System.out.println(container);
+			}
 		}
 	}
 

@@ -18,6 +18,31 @@ public class DetailsParser {
 
 	public static final String EMPTY = "Nur für";
 
+	public void parse(DatasetContainer container, File file) throws IOException {
+		CleanerProperties cleanerProperties = new CleanerProperties();
+
+		// e.g. &nbsp; -> " "
+		cleanerProperties.setDeserializeEntities(true);
+
+		TagNode rootTagNode = new HtmlCleaner(cleanerProperties).clean(file);
+
+		// Get elements containing tables
+		List<? extends TagNode> contentTagNodes = rootTagNode.getElementListByAttValue("class", "contentBox", true,
+				true);
+
+		// Iterate through 9 elements with tables
+		for (TagNode tagNode : contentTagNodes) {
+
+			if (tagNode.getText().toString().trim().startsWith("Allgemeine Angaben")) {
+				parseGeneral(container, tagNode);
+			}
+
+			if (tagNode.getText().toString().trim().startsWith("Zugangsinformationen")) {
+				parseAccess(container, tagNode);
+			}
+		}
+	}
+
 	private void parseGeneral(DatasetContainer container, TagNode tagNode) {
 		TagNode table = tagNode.getElementListByName("table", false).get(0);
 		List<? extends TagNode> rows = table.getElementListByName("tr", true);
@@ -43,7 +68,7 @@ public class DetailsParser {
 			} else if (rowText.startsWith("Datenkategorie:")) {
 				container.category = cellText;
 			} else if (rowText.startsWith("Datenkategorie Detail:")) {
-				container.categoryDetail = cellText;
+				container.categoryDetail = Arrays.asList(cellText.split(","));
 			} else if (rowText.startsWith("Verkehrsmittel:")) {
 				container.transportModes = Arrays.asList(cellText.split(","));
 			} else if (rowText.startsWith("Aktualisierungsintervall:")) {
@@ -52,28 +77,33 @@ public class DetailsParser {
 		}
 	}
 
-	public void parse(DatasetContainer container, File file) throws IOException {
-		CleanerProperties cleanerProperties = new CleanerProperties();
+	private void parseAccess(DatasetContainer container, TagNode tagNode) {
+		TagNode table = tagNode.getElementListByName("table", false).get(0);
+		List<? extends TagNode> rows = table.getElementListByName("tr", true);
+		for (TagNode row : rows) {
 
-		// e.g. &nbsp; -> " "
-		cleanerProperties.setDeserializeEntities(true);
-
-		TagNode rootTagNode = new HtmlCleaner(cleanerProperties).clean(file);
-
-		// Get elements containing tables
-		List<? extends TagNode> contentTagNodes = rootTagNode.getElementListByAttValue("class", "contentBox", true,
-				true);
-
-		// Iterate through 9 elements with tables
-		for (TagNode tagNode : contentTagNodes) {
-
-			if (tagNode.getText().toString().trim().startsWith("Allgemeine Angaben")) {
-				parseGeneral(container, tagNode);
+			List<? extends TagNode> cells = row.getElementListByName("td", false);
+			TagNode cell = null;
+			if (cells.size() < 2) {
+				continue;
+			} else {
+				cell = cells.get(1);
 			}
 
-			// TODO: Other tables
+			String cellText = cell.getText().toString().trim();
+			if (cellText.startsWith(EMPTY)) {
+				continue;
+			}
+
+			String rowText = row.getText().toString().trim();
+
+			if (rowText.startsWith("Syntax:")) {
+				container.dataFormat = cellText;
+			} else if (rowText.startsWith("Modell:")) {
+				if (!cellText.equals("Sonstige")) {
+					container.dataModel = cellText;
+				}
+			}
 		}
-
 	}
-
 }
