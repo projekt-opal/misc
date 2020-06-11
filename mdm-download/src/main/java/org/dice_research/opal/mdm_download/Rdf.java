@@ -25,17 +25,17 @@ public class Rdf {
 
 	private Model model;
 
-	public Model create(List<IndexContainer> containers) {
+	public Model create(List<DatasetContainer> containers) {
 		model = ModelFactory.createDefaultModel();
 
-		for (IndexContainer container : containers) {
+		for (DatasetContainer container : containers) {
 			addDataset(model, container);
 		}
 
 		return model;
 	}
 
-	private void addDataset(Model model, IndexContainer container) {
+	private void addDataset(Model model, DatasetContainer container) {
 
 		// ID and access URL required
 		if (container.publicationId == null || container.publicationId.isEmpty()) {

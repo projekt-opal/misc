@@ -13,13 +13,13 @@ public class IndexParser {
 
 	public static final String DETAILS_PREFIX = "https://service.mdm-portal.de/mdm-portal-application/publDetail.do?publicationId=";
 
-	public List<IndexContainer> parseIndex(File fileIndex) throws IOException {
-		List<IndexContainer> indexContainers = new LinkedList<>();
+	public List<DatasetContainer> parseIndex(File fileIndex) throws IOException {
+		List<DatasetContainer> indexContainers = new LinkedList<>();
 		CleanerProperties cleanerProperties = new CleanerProperties();
 
 		// e.g. &nbsp; -> " "
 		cleanerProperties.setDeserializeEntities(true);
-		
+
 		TagNode rootTagNode = new HtmlCleaner(cleanerProperties).clean(fileIndex);
 
 		// Get tables
@@ -27,7 +27,7 @@ public class IndexParser {
 				true, true);
 
 		for (TagNode tagNode : tableTagNodes) {
-			IndexContainer indexContainer = new IndexContainer();
+			DatasetContainer indexContainer = new DatasetContainer();
 
 			// 9 td elements in each table
 			List<? extends TagNode> tdTagNodes = tagNode.getElementListByName("td", true);
@@ -35,6 +35,10 @@ public class IndexParser {
 			indexContainer.title = tdTagNodes.get(0).getText().toString().trim();
 
 			indexContainer.description = tdTagNodes.get(1).getText().toString().trim();
+			if (Boolean.FALSE) {
+				indexContainer.description = indexContainer.description.replaceAll("\\s+", " ");
+			}
+
 			if (indexContainer.description.contains("...Mehr")) {
 				indexContainer.description = indexContainer.description
 						.substring(indexContainer.description.indexOf("...Mehr") + 7).trim();

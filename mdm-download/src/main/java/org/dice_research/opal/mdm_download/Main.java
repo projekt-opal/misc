@@ -1,8 +1,10 @@
 package org.dice_research.opal.mdm_download;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.net.URL;
 import java.util.List;
 
 import org.apache.jena.rdf.model.Model;
@@ -43,15 +45,18 @@ public class Main {
 		// Download and parse data
 		File indexFile = new File(main.downloadDirectory, FILE_NAME_INDEX);
 		main.downloadIndex(indexFile);
-		List<IndexContainer> containers = main.parseIndex(indexFile);
+		List<DatasetContainer> containers = main.parseIndex(indexFile);
 
-		// TODO: Get details and use DetailsContainer.java
+		// Download and parse details
+		for (DatasetContainer container : containers) {
+			new DetailsParser().parse(container, main.downloadDetails(container));
+		}
 
 		// Generate and write RDF
-		Model model = new Rdf().create(containers);
-		File turtleFile = new File(main.downloadDirectory, FILE_NAME_TURTLE);
-		System.out.println("Writing: " + turtleFile.getAbsolutePath());
-		RDFDataMgr.write(new FileOutputStream(turtleFile), model, Lang.TURTLE);
+		if (Boolean.TRUE) {
+			File turtleFile = new File(main.downloadDirectory, FILE_NAME_TURTLE);
+			main.createRdf(containers, turtleFile);
+		}
 	}
 
 	private void checkDownloadDirectory() {
@@ -77,18 +82,43 @@ public class Main {
 
 	private void downloadIndex(File file) throws IOException {
 		if (file.exists()) {
-			System.out.println("Skipping downloading existing file: " + file.getAbsolutePath());
+			System.out.println("Skipping download of existing file: " + file.getAbsolutePath());
 		} else {
 			System.out.println("Downloading to: " + file.getAbsolutePath());
-			downloader.downloadMdMIndex(file);
+			downloader.downloadMdmIndex(file);
 		}
 	}
 
-	private List<IndexContainer> parseIndex(File file) throws IOException {
+	private File downloadDetails(DatasetContainer container) throws IOException {
+		if (container.detailsUrl == null || container.detailsUrl.isEmpty()) {
+			System.out.println("Canceling download of container: " + container.publicationId);
+			return null;
+		} else if (container.publicationId == null || container.publicationId.isEmpty()) {
+			System.out.println("Canceling download of container: " + container.detailsUrl);
+			return null;
+		}
+
+		File file = new File(downloadDirectory, container.publicationId + ".htm");
+		if (file.exists()) {
+			System.out.println("Skipping download of existing file: " + file.getAbsolutePath());
+			return file;
+		}
+
+		System.out.println("Downloading to: " + file.getAbsolutePath());
+		downloader.download(new URL(container.detailsUrl), file);
+		return file;
+	}
+
+	private List<DatasetContainer> parseIndex(File file) throws IOException {
 		System.out.println("Parsing: " + file.getAbsolutePath());
-		List<IndexContainer> containers = new IndexParser().parseIndex(file);
+		List<DatasetContainer> containers = new IndexParser().parseIndex(file);
 		System.out.println("Found datasets: " + containers.size());
 		return containers;
 	}
 
+	private void createRdf(List<DatasetContainer> containers, File turtleFile) throws FileNotFoundException {
+		Model model = new Rdf().create(containers);
+		System.out.println("Writing: " + turtleFile.getAbsolutePath());
+		RDFDataMgr.write(new FileOutputStream(turtleFile), model, Lang.TURTLE);
+	}
 }

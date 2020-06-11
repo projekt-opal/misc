@@ -24,11 +24,16 @@ import org.apache.commons.io.FileUtils;
  */
 public class Downloader {
 
+	public void download(URL url, File file) throws IOException {
+		Map<String, String> parameters = new HashMap<String, String>();
+		FileUtils.writeLines(file, connectionToLines(postRequest(url, parameters)));
+	}
+
 	/**
 	 * curl -X POST -F "items=500" -F "first=0" -F "page=0"
 	 * https://service.mdm-portal.de/mdm-portal-application/publicationSearch.do
 	 */
-	public void downloadMdMIndex(File file) throws IOException {
+	public void downloadMdmIndex(File file) throws IOException {
 		URL url = new URL("https://service.mdm-portal.de/mdm-portal-application/publicationSearch.do");
 		Map<String, String> parameters = new HashMap<String, String>();
 		parameters.put("items", "500");
