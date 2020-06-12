@@ -2,7 +2,7 @@ package org.dice_research.opal.mdm_download;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.List;
 
 import org.htmlcleaner.CleanerProperties;
@@ -68,9 +68,9 @@ public class DetailsParser {
 			} else if (rowText.startsWith("Datenkategorie:")) {
 				container.category = cellText;
 			} else if (rowText.startsWith("Datenkategorie Detail:")) {
-				container.categoryDetail = Arrays.asList(cellText.split(","));
+				container.categoryDetail = splitByComma(cellText);
 			} else if (rowText.startsWith("Verkehrsmittel:")) {
-				container.transportModes = Arrays.asList(cellText.split(","));
+				container.transportModes = splitByComma(cellText);
 			} else if (rowText.startsWith("Aktualisierungsintervall:")) {
 				container.updateInterval = cellText;
 			}
@@ -105,5 +105,15 @@ public class DetailsParser {
 				}
 			}
 		}
+	}
+
+	private List<String> splitByComma(String text) {
+		List<String> list = new LinkedList<>();
+		if (!text.isEmpty()) {
+			for (String string : text.split(",")) {
+				list.add(string.trim());
+			}
+		}
+		return list;
 	}
 }
