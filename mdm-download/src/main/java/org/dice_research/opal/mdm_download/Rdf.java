@@ -28,6 +28,12 @@ public class Rdf {
 	public Model create(List<DatasetContainer> containers) {
 		model = ModelFactory.createDefaultModel();
 
+		// Reduce model size by using prefixes
+		model.setNsPrefix("dct", DCTerms.NS);
+		model.setNsPrefix("foaf", FOAF_NS);
+		model.setNsPrefix("dcat", DCAT.NS);
+		model.setNsPrefix("mdm", MDM);
+
 		for (DatasetContainer container : containers) {
 			addDataset(model, container);
 		}
