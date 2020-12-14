@@ -3,6 +3,9 @@
 Miscellaneous components
 
 * [OPAL export](export) Converts RDF data to CSV.
+* [DCAT themes](dcat-themes) Creates a file containing labels for the default themes.
+* [MDOM download](mdm-download) Downloads data from the MDM portal and creates DCAT RDF.
+
 
 ## Credits
 
